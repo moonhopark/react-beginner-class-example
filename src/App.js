@@ -1,4 +1,5 @@
 import './App.css';
+import ConditionalRender from './components/ConditionalRender';
 import FunctionComponent from './components/FunctionComponent';
 import JSX from './components/JSX';
 import Props from './components/Props';
@@ -9,7 +10,8 @@ import UseState from './components/UseState';
 const App = () => {
   return (
     <div className="App">
-      <UseState />
+      {/* <UseState /> */}
+      <ConditionalRender />
       {/* <FunctionComponent /> */}
       {/* <JSX /> */}
       {/* <PureJS /> */}
