@@ -1,15 +1,7 @@
-import './App.css';
-
-import Props from './components/Props';
+import Form from 'components/SecondMission/Form';
 
 const App = () => {
-  return (
-    <div className="App">
-      <Props name="Kim" age={21} />
-      <Props name="Park" age={23} />
-      <Props name="Lee" age={25} />
-    </div>
-  );
+  return <Form />;
 };
 
 export default App;
