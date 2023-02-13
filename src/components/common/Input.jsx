@@ -1,20 +1,20 @@
 import React from 'react';
 
-import styles from './style.module.css';
+import './style.css';
 
-const Input = ({ title, name, value, onChange, required, type, placeholder, autoComplete }) => {
+const Input = ({ title, name, value, onChange, required, type, placeholder, autoComplete, signup }) => {
   return (
-    <div className={styles.Wrapper}>
+    <div className="input-wrapper">
       <div>
         {title}
-        {required && (
+        {!signup && required && (
           <div style={{ marginLeft: '5px', fontSize: '12px' }}>
             필수 <span style={{ color: 'red' }}>*</span>
           </div>
         )}
       </div>
       <input
-        className={styles.Input}
+        className="input"
         required={required}
         type={type}
         placeholder={placeholder}

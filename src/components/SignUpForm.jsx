@@ -10,6 +10,8 @@ const SignupForm = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
 
+  const [isPasswordCheckError, setIsPasswordCheckError] = useState(false);
+
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -19,6 +21,11 @@ const SignupForm = () => {
 
   const handleChangePasswordCheck = (e) => {
     setPasswordCheck(e.target.value);
+    if (password !== passwordCheck) {
+      setIsPasswordCheckError(true);
+    } else {
+      setIsPasswordCheckError(false);
+    }
   };
 
   const handleChangeName = (e) => {
@@ -31,7 +38,9 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('제출', { email, password, age });
+    console.log('제출', { email, password, passwordCheck, name, age });
+
+    // api 통신을 통해 회원가입
   };
 
   return (
@@ -62,7 +71,8 @@ const SignupForm = () => {
           type="password"
           placeholder="비밀번호를 다시 입력하세요"
         />
-        <Input title="이름" value={name} onChange={handleChangeName} type="text" placeholder="이름을 입력하세요" />
+        {isPasswordCheckError && <div style={{ fontSize: '12px', color: 'red' }}>비밀번호가 일치하지 않습니다.</div>}
+        <Input title="이름" value={name} onChange={handleChangeName} required type="text" placeholder="이름을 입력하세요" />
         <Input title="나이" value={age} onChange={handleChangeAge} type="number" placeholder="나이를 입력하세요" />
         <button className="form-button" type="submit">
           가입하기

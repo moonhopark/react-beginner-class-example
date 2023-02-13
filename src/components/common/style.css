@@ -1,24 +1,24 @@
-.Wrapper {
-  margin-bottom: 20px;
+.input-wrapper {
+  margin-top: 20px;
 }
 
-.Wrapper > div {
+.input-wrapper > div {
   display: flex;
 }
 
-.Input {
+.input {
   padding: 15px 20px;
   border-radius: 5px;
   border: 1px solid rgb(151, 151, 151);
   font-size: 17px;
 }
 
-.Input::placeholder {
+.input::placeholder {
   color: rgb(151, 151, 151);
 }
 
-.Input::-webkit-outer-spin-button,
-.Input::-webkit-inner-spin-button {
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
