@@ -7,7 +7,6 @@ const Form = () => {
   const [user, setUser] = useState({
     email: '',
     password: '',
-    passwordCheck: '',
     age: 0,
   });
 
@@ -42,14 +41,6 @@ const Form = () => {
           required
           type="password"
           placeholder="비밀번호를 입력하세요"
-        />
-        <Input
-          name="passwordCheck"
-          value={user.passwordCheck}
-          onChange={handleChangeUser}
-          required
-          type="password"
-          placeholder="비밀번호를 다시 입력하세요"
         />
         <Input name="age" value={user.age} onChange={handleChangeUser} type="number" placeholder="나이를 입력하세요" />
         <button className="form-button" type="submit">
