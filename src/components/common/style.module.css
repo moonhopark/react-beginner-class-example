@@ -1,22 +1,24 @@
-.form {
-  display: flex;
-  flex-direction: column;
+.Wrapper {
+  margin-bottom: 20px;
 }
 
-.form-input {
-  margin-top: 20px;
+.Wrapper > div {
+  display: flex;
+}
+
+.Input {
   padding: 15px 20px;
   border-radius: 5px;
   border: 1px solid rgb(151, 151, 151);
   font-size: 17px;
 }
 
-.form-input::placeholder {
+.Input::placeholder {
   color: rgb(151, 151, 151);
 }
 
-.form-input::-webkit-outer-spin-button,
-.form-input::-webkit-inner-spin-button {
+.Input::-webkit-outer-spin-button,
+.Input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
