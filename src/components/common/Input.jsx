@@ -8,8 +8,8 @@ const Input = ({ title, name, value, onChange, required, type, placeholder, auto
       <div>
         {title}
         {!signup && required && (
-          <div style={{ marginLeft: '5px', fontSize: '12px' }}>
-            필수 <span style={{ color: 'red' }}>*</span>
+          <div className="input-required">
+            필수 <span>*</span>
           </div>
         )}
       </div>

@@ -22,3 +22,12 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+.input-required {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.input-required > span {
+  color: red;
+}

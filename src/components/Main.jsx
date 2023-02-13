@@ -6,7 +6,7 @@ const Main = () => {
 
   useEffect(() => {
     if (!localStorage.getItem('token')) navigate('/signin');
-  }, []);
+  }, [navigate]);
 
   return <main style={{ fontSize: '30px' }}>메인페이지</main>;
 };
