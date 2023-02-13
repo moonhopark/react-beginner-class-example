@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Input from './Input';
 
+import Input from './Input';
 import './style.css';
 
 const Form = () => {
@@ -44,7 +44,7 @@ const Form = () => {
         />
         <Input name="age" value={user.age} onChange={handleChangeUser} type="number" placeholder="나이를 입력하세요" />
         <button className="form-button" type="submit">
-          가입하기
+          로그인
         </button>
       </form>
     </div>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import Input from './Input';
 
+import Input from './Input';
 import './style.css';
 
-const Form = () => {
+const SigninForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [age, setAge] = useState('');
 
   const handleChangeEmail = (e) => {
@@ -27,16 +26,16 @@ const Form = () => {
 
   return (
     <div className="form-wrapper">
-      <h1>계정 정보를 입력하세요.</h1>
+      <h1>로그인</h1>
       <form className="form" onSubmit={handleSubmit}>
         <Input value={email} onChange={handleChangeEmail} required type="email" placeholder="이메일을 입력하세요" />
         <Input value={password} onChange={handleChangePassword} required type="password" placeholder="비밀번호를 입력하세요" />
         <Input value={age} onChange={handleChangeAge} type="number" placeholder="나이를 입력하세요" />
         <button className="form-button" type="submit">
-          가입하기
+          로그인
         </button>
       </form>
     </div>
   );
 };
-export default Form;
+export default SigninForm;
