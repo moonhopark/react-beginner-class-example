@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-import Input from './Input';
+import Input from 'components/Input';
 import './SignIn.css';
 
-const Form = () => {
+const SignInObjectPage = () => {
   const [user, setUser] = useState({
     email: '',
     password: '',
-    age: 0,
   });
 
   const handleChangeUser = (e) => {
@@ -15,6 +14,7 @@ const Form = () => {
       ...user,
       [e.target.name]: e.target.value,
     });
+    // setUser((user[e.target.name] = e.target.value));
   };
 
   const handleSubmit = (e) => {
@@ -27,6 +27,7 @@ const Form = () => {
       <h1>로그인</h1>
       <form className="form" onSubmit={handleSubmit}>
         <Input
+          title="이메일"
           name="email"
           value={user.email}
           onChange={handleChangeUser}
@@ -35,14 +36,15 @@ const Form = () => {
           placeholder="이메일을 입력하세요"
         />
         <Input
+          title="비밀번호"
           name="password"
           value={user.password}
           onChange={handleChangeUser}
           required
           type="password"
           placeholder="비밀번호를 입력하세요"
+          autoComplete="off"
         />
-        <Input name="age" value={user.age} onChange={handleChangeUser} type="number" placeholder="나이를 입력하세요" />
         <button className="form-button" type="submit">
           로그인
         </button>
@@ -50,4 +52,4 @@ const Form = () => {
     </div>
   );
 };
-export default Form;
+export default SignInObjectPage;

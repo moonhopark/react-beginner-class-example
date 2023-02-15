@@ -1,21 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SinginForm from 'components/SignInForm';
-import SingupForm from 'components/SignUpForm';
-import Main from 'components/Main';
+import UseState from 'components/UseState';
+import UseContext from 'components/UseContext';
+// import UseEffect from 'components/UseEffect';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-
-        <Route path="/signin" element={<SinginForm />} />
-
-        <Route path="/signup" element={<SingupForm />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      {/* <UseState /> */}
+      {/* <UseEffect /> */}
+      <UseContext />
+    </>
   );
 };
 
