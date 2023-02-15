@@ -38,7 +38,6 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('제출', { email, password, passwordCheck, name, age });
-
     // api 통신을 통해 회원가입
   };
 
