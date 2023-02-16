@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SinginForm from 'components/SignInForm';
-import SingupForm from 'components/SignUpForm';
-import Main from 'components/Main';
+import SignUpPage from 'pages/SignUp';
+import SignInReducerPage from 'pages/SignInReducer';
+import MainPage from 'pages/Main';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<MainPage />} />
 
-        <Route path="/signin" element={<SinginForm />} />
+        <Route path="/signin" element={<SignInReducerPage />} />
 
-        <Route path="/signup" element={<SingupForm />} />
+        <Route path="/signup" element={<SignUpPage />} />
       </Routes>
     </BrowserRouter>
   );

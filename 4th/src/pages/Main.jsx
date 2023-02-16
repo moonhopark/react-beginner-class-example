@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Main = () => {
+const MainPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem('token')) navigate('/signin');
   }, [navigate]);
 
-  return <main style={{ fontSize: '30px' }}>메인페이지</main>;
+  return <main style={{ fontSize: '30px' }}>안녕하세요, {localStorage.getItem('token')}님</main>;
 };
 
-export default Main;
+export default MainPage;

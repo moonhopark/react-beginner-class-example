@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Input from 'components/common/Input';
-import './style.css';
+import Input from 'components/Input';
+import './SignUp.css';
 
-const SignupForm = () => {
+const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
@@ -11,6 +11,10 @@ const SignupForm = () => {
   const [age, setAge] = useState('');
 
   const [isPasswordCheckError, setIsPasswordCheckError] = useState(false);
+
+  useEffect(() => {
+    passwordCheck !== '' && password !== passwordCheck ? setIsPasswordCheckError(true) : setIsPasswordCheckError(false);
+  }, [password, passwordCheck]);
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -21,11 +25,6 @@ const SignupForm = () => {
 
   const handleChangePasswordCheck = (e) => {
     setPasswordCheck(e.target.value);
-    if (password !== passwordCheck) {
-      setIsPasswordCheckError(true);
-    } else {
-      setIsPasswordCheckError(false);
-    }
   };
 
   const handleChangeName = (e) => {
@@ -39,8 +38,24 @@ const SignupForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('제출', { email, password, passwordCheck, name, age });
+    alert(`${name}님, 회원가입이 완료되었습니다!`);
+  };
 
-    // api 통신을 통해 회원가입
+  const isFilled = () => {
+    if (email && password && passwordCheck && name && !isPasswordCheckError) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const handleResetClick = (e) => {
+    e.preventDefault();
+    setEmail('');
+    setPassword('');
+    setPasswordCheck('');
+    setName('');
+    setAge('');
   };
 
   return (
@@ -62,6 +77,7 @@ const SignupForm = () => {
           required
           type="password"
           placeholder="비밀번호를 입력하세요"
+          autoComplete="off"
         />
         <Input
           title="비밀번호 재확인"
@@ -70,15 +86,19 @@ const SignupForm = () => {
           required
           type="password"
           placeholder="비밀번호를 다시 입력하세요"
+          autoComplete="off"
         />
         {isPasswordCheckError && <div style={{ fontSize: '12px', color: 'red' }}>비밀번호가 일치하지 않습니다.</div>}
         <Input title="이름" value={name} onChange={handleChangeName} required type="text" placeholder="이름을 입력하세요" />
         <Input title="나이" value={age} onChange={handleChangeAge} type="number" placeholder="나이를 입력하세요" />
-        <button className="form-button" type="submit">
+        <button className={isFilled() ? 'form-button' : 'form-button-disabled'} type="submit" disabled={!isFilled()}>
           가입하기
+        </button>
+        <button className="form-button-reset" onClick={handleResetClick}>
+          리셋하기
         </button>
       </form>
     </div>
   );
 };
-export default SignupForm;
+export default SignUpPage;

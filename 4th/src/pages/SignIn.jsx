@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import Input from 'components/common/Input';
-import './style.css';
+import Input from 'components/Input';
+import './SignIn.css';
 
-const SigninForm = () => {
+const SignInPage = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -56,4 +56,4 @@ const SigninForm = () => {
     </div>
   );
 };
-export default SigninForm;
+export default SignInPage;

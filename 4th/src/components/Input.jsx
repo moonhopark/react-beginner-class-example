@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './style.css';
+import './Input.css';
 
 const Input = ({ title, name, value, onChange, required, type, placeholder, autoComplete, signup }) => {
   return (
