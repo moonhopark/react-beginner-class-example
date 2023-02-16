@@ -1,15 +1,21 @@
 import React from 'react';
 
 import UseState from 'components/UseState';
+import UseStateObject from 'components/UseStateObject';
+import UseEffect from 'components/UseEffect';
 import UseContext from 'components/UseContext';
-// import UseEffect from 'components/UseEffect';
+import UseReducerOne from 'components/UseReducerOne';
+import UseReducerTwo from 'components/UseReducerTwo';
 
 const App = () => {
   return (
     <>
-      {/* <UseState /> */}
+      <UseState />
+      {/* <UseStateObject /> */}
       {/* <UseEffect /> */}
-      <UseContext />
+      {/* <UseContext /> */}
+      {/* <UseReducerOne/> */}
+      {/* <UseReducerTwo */}
     </>
   );
 };

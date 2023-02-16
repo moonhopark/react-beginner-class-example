@@ -4,9 +4,13 @@ const UseState = () => {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    setCount(count + 1);
+    // setCount(count + 1);
+    // console.log(count);
+    // setCount(count + 1);
+    // console.log(count);
+    setCount((prev) => prev + 1);
     console.log(count);
-    setCount(count + 1);
+    setCount((prev) => prev + 1);
     console.log(count);
   };
 
