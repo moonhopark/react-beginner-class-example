@@ -13,7 +13,7 @@ const SignUpPage = () => {
   const [isPasswordCheckError, setIsPasswordCheckError] = useState(false);
 
   useEffect(() => {
-    password === passwordCheck ? setIsPasswordCheckError(false) : setIsPasswordCheckError(true);
+    passwordCheck !== '' && password !== passwordCheck ? setIsPasswordCheckError(true) : setIsPasswordCheckError(false);
   }, [password, passwordCheck]);
 
   const handleChangeEmail = (e) => {
@@ -38,7 +38,24 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('제출', { email, password, passwordCheck, name, age });
-    // api 통신을 통해 회원가입
+    alert(`${name}님, 회원가입이 완료되었습니다!`);
+  };
+
+  const isFilled = () => {
+    if (email && password && passwordCheck && name && !isPasswordCheckError) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const handleResetClick = (e) => {
+    e.preventDefault();
+    setEmail('');
+    setPassword('');
+    setPasswordCheck('');
+    setName('');
+    setAge('');
   };
 
   return (
@@ -74,8 +91,11 @@ const SignUpPage = () => {
         {isPasswordCheckError && <div style={{ fontSize: '12px', color: 'red' }}>비밀번호가 일치하지 않습니다.</div>}
         <Input title="이름" value={name} onChange={handleChangeName} required type="text" placeholder="이름을 입력하세요" />
         <Input title="나이" value={age} onChange={handleChangeAge} type="number" placeholder="나이를 입력하세요" />
-        <button className="form-button" type="submit">
+        <button className={isFilled() ? 'form-button' : 'form-button-disabled'} type="submit" disabled={!isFilled()}>
           가입하기
+        </button>
+        <button className="form-button-reset" onClick={handleResetClick}>
+          리셋하기
         </button>
       </form>
     </div>
