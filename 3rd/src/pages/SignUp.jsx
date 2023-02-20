@@ -41,13 +41,17 @@ const SignUpPage = () => {
     alert(`${name}님, 회원가입이 완료되었습니다!`);
   };
 
-  const isAvailable = () => {
-    if (email && password && passwordCheck && name && !isPasswordCheckError) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  // const isAvailable = () => {
+  //   if (email && password && passwordCheck && name && !isPasswordCheckError) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+
+  //   return email && password && passwordCheck && name && !isPasswordCheckError;
+  // };
+
+  const isAvailable = email && password && passwordCheck && name && !isPasswordCheckError;
 
   const handleResetClick = (e) => {
     e.preventDefault();
@@ -91,7 +95,7 @@ const SignUpPage = () => {
         {isPasswordCheckError && <div style={{ fontSize: '12px', color: 'red' }}>비밀번호가 일치하지 않습니다.</div>}
         <Input title="이름" value={name} onChange={handleChangeName} required type="text" placeholder="이름을 입력하세요" />
         <Input title="나이" value={age} onChange={handleChangeAge} type="number" placeholder="나이를 입력하세요" />
-        <button className={isAvailable() ? 'form-button' : 'form-button-disabled'} type="submit" disabled={!isAvailable()}>
+        <button className={isAvailable ? 'form-button' : 'form-button-disabled'} type="submit" disabled={!isAvailable}>
           가입하기
         </button>
         <button className="form-button-reset" onClick={handleResetClick}>
