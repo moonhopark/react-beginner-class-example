@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { UseReducer } from 'components/react-render';
+import { ObjectUseState, ArrayUseState } from 'components/react-render';
 
 const App = () => {
   return (
     <>
-      <UseReducer />
+      <ArrayUseState />
     </>
   );
 };
