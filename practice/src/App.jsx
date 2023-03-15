@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ObjectUseState, ArrayUseState } from 'components/react-render';
+import { Parent } from 'components/react-render';
 
 const App = () => {
   return (
     <>
-      <ArrayUseState />
+      <Parent />
     </>
   );
 };
