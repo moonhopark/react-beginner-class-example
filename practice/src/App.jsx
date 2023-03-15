@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Parent } from 'components/react-render';
+import { GrandParent } from 'components/react-render';
 
 const App = () => {
   return (
     <>
-      <Parent />
+      <GrandParent />
     </>
   );
 };
