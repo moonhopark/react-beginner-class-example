@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
-import { MemoizedChildTwo } from './ChildTwo';
+import { MemoizedChildFive } from './ChildFive';
 
-const ParentTwo = () => {
+const ParentFour = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState('Moonho');
 
-  console.log('ParentTwo Render');
+  const person = {
+    firstName: 'Bruce',
+    lastName: 'Wayne',
+  };
+
+  const handleClick = () => {};
+
+  console.log('ParentFour Render');
   return (
     <div>
       <button onClick={() => setCount((c) => c + 1)}>Count - {count}</button>
       <button onClick={() => setName('Park')}>Change name</button>
-      <MemoizedChildTwo name={name} />
+
+      <MemoizedChildFive name={name} handleClick={handleClick} />
     </div>
   );
 };
 
-export default ParentTwo;
+export default ParentFour;

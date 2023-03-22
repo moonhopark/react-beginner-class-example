@@ -7,3 +7,5 @@ export { default as ParentOne } from './Optimization/ParentOne';
 export { default as ChildOne } from './Optimization/ChildOne';
 export { default as GrandParent } from './Optimization/GrandParent';
 export { default as ParentTwo } from './Optimization/ParentTwo';
+export { default as ParentThree } from './Incorrect Optimizations/ParentThree';
+export { default as ParentFour } from './Incorrect Optimizations/ParentFour';

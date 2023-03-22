@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ParentTwo } from 'components/react-render';
+import { ParentFour } from 'components/react-render';
 
 const App = () => {
   return (
     <>
-      <ParentTwo />
+      <ParentFour />
     </>
   );
 };
