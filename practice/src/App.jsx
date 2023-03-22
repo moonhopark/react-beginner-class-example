@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { ParentFour } from 'components/react-render';
+import ContextParent from 'components/react-render/Context/ContextParent';
+import { ChildA } from 'components/react-render/Context/ContextChildren';
 
 const App = () => {
   return (
     <>
-      <ParentFour />
+      <ContextParent>
+        <ChildA />
+      </ContextParent>
     </>
   );
 };
