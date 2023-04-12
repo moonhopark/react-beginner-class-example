@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Input.css';
 
-const Input = ({ title, name, value, onChange, required, type, placeholder, autoComplete }) => {
+const Input = ({ title, required, ...rest }) => {
   return (
     <div className="input-wrapper">
       <div>
@@ -13,16 +13,7 @@ const Input = ({ title, name, value, onChange, required, type, placeholder, auto
           </div>
         )}
       </div>
-      <input
-        className="input"
-        required={required}
-        type={type}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
+      <input className="input" required={required} {...rest} />
     </div>
   );
 };
