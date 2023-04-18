@@ -41,16 +41,6 @@ const SignUpPage = () => {
     alert(`${name}님, 회원가입이 완료되었습니다!`);
   };
 
-  // const isAvailable = () => {
-  //   if (email && password && passwordCheck && name && !isPasswordCheckError) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-
-  //   return email && password && passwordCheck && name && !isPasswordCheckError;
-  // };
-
   const isAvailable = email && password && passwordCheck && name && !isPasswordCheckError;
 
   const handleResetClick = (e) => {

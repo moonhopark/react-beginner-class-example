@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Input.css';
 
-const Input = ({ title, required, type, placeholder }) => {
+const Input = ({ title, required, ...rest }) => {
   return (
     <div className="input-wrapper">
       <div>
@@ -13,7 +13,7 @@ const Input = ({ title, required, type, placeholder }) => {
           </div>
         )}
       </div>
-      <input className="input" required={required} type={type} placeholder={placeholder} />
+      <input className="input" required={required} {...rest} />
     </div>
   );
 };
