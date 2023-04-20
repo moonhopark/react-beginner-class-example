@@ -22,14 +22,7 @@
   background-color: rgb(24, 137, 230);
 }
 
-.form-button-disabled {
-  margin-top: 20px;
-  padding: 15px 90px;
-  border-radius: 50px;
-  border: none;
-  font-size: 17px;
-  font-weight: 700;
-  color: white;
+.form-button:disabled {
   background-color: #dddddd;
 }
 
@@ -40,9 +33,4 @@
   border-radius: 40px;
   border: none;
   font-size: 10px;
-}
-
-.form-signup-link {
-  margin-top: 20px;
-  text-align: center;
 }

@@ -27,12 +27,12 @@ const SignUpPageObject = () => {
     e.preventDefault();
     console.log('제출', user);
     alert(`${user.name}님, 회원가입이 완료되었습니다!`);
+    handleResetClick();
   };
 
   const isAvailable = user.email && user.password && user.passwordCheck && user.name && !user.isPasswordCheckError;
 
-  const handleResetClick = (e) => {
-    e.preventDefault();
+  const handleResetClick = () => {
     setUser({
       email: '',
       password: '',

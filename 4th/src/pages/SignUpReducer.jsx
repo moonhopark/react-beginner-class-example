@@ -1,71 +1,24 @@
-import React, { useReducer, useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import Input from 'components/Input';
-import { UserContext } from 'App';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
-
-const initialState = {
-  email: '',
-  password: '',
-  passwordCheck: '',
-  name: '',
-  age: '',
-  isPasswordCheckError: false,
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'onChange':
-      return {
-        ...state,
-        [action.name]: action.value,
-      };
-    case 'onChangePasswordCheck':
-      return {
-        ...state,
-        passwordCheck: action.value,
-        isPasswordCheckError: state.password !== action.value ? true : false,
-      };
-    case 'reset':
-      return {
-        email: '',
-        password: '',
-        passwordCheck: '',
-        name: '',
-        age: '',
-        isPasswordCheckError: false,
-      };
-    default:
-      return;
-  }
-};
+import { UserContext } from 'App';
 
 const SignUpReducerPage = () => {
-  const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { userState, userDispatch } = useContext(UserContext);
+  const { email, password, passwordCheck, name, age } = userState;
 
-  const { email, password, passwordCheck, name, age, isPasswordCheckError } = state;
+  const isPasswordCheckError = passwordCheck !== '' && password !== passwordCheck ? true : false;
 
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      console.log('제출', state);
-      setUser(state.name);
-      navigate('/');
-      // alert(`${name}님, 회원가입이 완료되었습니다!`);
-    },
-    [state, navigate, setUser]
-  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('제출', userState);
 
-  const isFilled = useCallback(() => {
-    if (email && password && passwordCheck && name && !isPasswordCheckError) {
-      return true;
-    } else {
-      return false;
-    }
-  }, [email, password, passwordCheck, name, isPasswordCheckError]);
+    alert(`${userState.name}님, 회원가입이 완료되었습니다!`);
+    userDispatch({ type: 'reset' });
+  };
+
+  const isAvailable = email && password && passwordCheck && name && !isPasswordCheckError;
 
   return (
     <div className="form-wrapper">
@@ -75,7 +28,7 @@ const SignUpReducerPage = () => {
           title="이메일"
           name="email"
           value={email}
-          onChange={(e) => dispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
+          onChange={(e) => userDispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
           required
           type="email"
           placeholder="이메일을 입력하세요"
@@ -84,7 +37,7 @@ const SignUpReducerPage = () => {
           title="비밀번호"
           name="password"
           value={password}
-          onChange={(e) => dispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
+          onChange={(e) => userDispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
           required
           type="password"
           placeholder="비밀번호를 입력하세요"
@@ -94,7 +47,7 @@ const SignUpReducerPage = () => {
           title="비밀번호 재확인"
           name="passwordCheck"
           value={passwordCheck}
-          onChange={(e) => dispatch({ type: 'onChangePasswordCheck', name: e.target.name, value: e.target.value })}
+          onChange={(e) => userDispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
           required
           type="password"
           placeholder="비밀번호를 다시 입력하세요"
@@ -105,7 +58,7 @@ const SignUpReducerPage = () => {
           title="이름"
           name="name"
           value={name}
-          onChange={(e) => dispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
+          onChange={(e) => userDispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
           required
           type="text"
           placeholder="이름을 입력하세요"
@@ -114,14 +67,14 @@ const SignUpReducerPage = () => {
           title="나이"
           name="age"
           value={age}
-          onChange={(e) => dispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
+          onChange={(e) => userDispatch({ type: 'onChange', name: e.target.name, value: e.target.value })}
           type="number"
           placeholder="나이를 입력하세요"
         />
-        <button className={isFilled() ? 'form-button' : 'form-button-disabled'} type="submit" disabled={!isFilled()}>
+        <button className="form-button" type="submit" disabled={!isAvailable}>
           가입하기
         </button>
-        <button className="form-button-reset" onClick={() => dispatch({ type: 'reset' })}>
+        <button className="form-button-reset" onClick={() => userDispatch({ type: 'reset' })}>
           리셋하기
         </button>
       </form>
