@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Input.css';
 
-const Input = ({ title, required, ...rest }) => {
+const Input = ({ title, required, inputRef, ...rest }) => {
   return (
     <div className="input-wrapper">
       <div>
@@ -13,7 +13,7 @@ const Input = ({ title, required, ...rest }) => {
           </div>
         )}
       </div>
-      <input className="input" required={required} {...rest} />
+      <input className="input" required={required} ref={inputRef} {...rest} />
     </div>
   );
 };
